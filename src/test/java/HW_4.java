@@ -24,10 +24,12 @@ public class HW_4 {
         // Перейдите в раздел Wiki проекта
         $("#wiki-tab").click();
         // Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
-        $("#wiki-body").shouldHave(text("Soft assertions"));
+        $("#wiki-pages-filter").setValue("SoftAssertions");
+        $("[data-filterable-for=wiki-pages-filter]").shouldHave(text("SoftAssertions"));
         // Откройте страницу SoftAssertions
         $("#wiki-body").$(byText("Soft assertions")).click();
         // Проверьте что внутри есть пример кода для JUnit5
         $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
+
     }
 }
