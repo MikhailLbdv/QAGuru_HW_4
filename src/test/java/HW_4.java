@@ -13,7 +13,7 @@ public class HW_4 {
     static void beforeAll() {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
     }
 
     @Test
