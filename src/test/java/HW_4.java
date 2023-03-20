@@ -1,5 +1,3 @@
-package github;
-
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,11 +11,23 @@ public class HW_4 {
     static void beforeAll() {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void test() {
+
+        String SpasiboChtoVDZPrositeDelatToChemyNeYchili = "@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "  void test() {\n" +
+                "    Configuration.assertionMode = SOFT;\n" +
+                "    open(\"page.html\");\n" +
+                "\n" +
+                "    $(\"#first\").should(visible).click();\n" +
+                "    $(\"#second\").should(visible).click();\n" +
+                "  }\n" +
+                "}";
 
         // Откройте страницу Selenide в Github
         open("https://github.com/selenide/selenide");
@@ -30,6 +40,7 @@ public class HW_4 {
         $("#wiki-body").$(byText("Soft assertions")).click();
         // Проверьте что внутри есть пример кода для JUnit5
         $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
+        $(".markdown-body").shouldHave(text(SpasiboChtoVDZPrositeDelatToChemyNeYchili));
 
     }
 }
